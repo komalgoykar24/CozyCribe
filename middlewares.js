@@ -1,6 +1,6 @@
 const Listing=require("./models/listing")
 const Review=require("./models/reviews.js")
-const listingSchema=require("../MAJORPROJECT/schema.js");
+const listingSchema=require("./models/listing.js");
 const reviewSchema=require("./models/reviews.js")
 
 
