@@ -2,6 +2,7 @@ const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 const Review=require("./reviews")
 
+
 const listingSchema=new Schema({
     title:{
         type:String,
