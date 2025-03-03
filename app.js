@@ -42,7 +42,7 @@ const sessionOpt = {
     
 };
 
-
+console.log(dbURL)
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.engine("ejs",ejsMate);
@@ -74,7 +74,7 @@ main().then(()=>{
 async function main(params) {
     await mongoose.connect(dbURL);
 };
-
+console.log(dbURL)
 app.use((req,res,next)=>{
     res.locals.sucess=req.flash("sucess");
     res.locals.error=req.flash("error");
