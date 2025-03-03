@@ -16,6 +16,9 @@ const passport=require("passport");
 const LocalStrtegy=require("passport-local");
 const User=require("./models/user.js");
 const dbURL=process.env.ATLASDB_URL;
+const schema = require('./schema.js');
+const middlewares = require('./middlewares.js');
+
 
 const store=MongoStore.create({
     mongoUrl:dbURL,
