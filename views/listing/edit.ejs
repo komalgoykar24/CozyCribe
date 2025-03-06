@@ -16,6 +16,24 @@
 
                 </div>
                 <div class="mb-3">
+                    <label for="category" class="form-label">Select Category</label>
+                    <select name="listing[category]" id="category" class="form-select" required>
+                        <option value="<%=listing.category%>" selected><%=listing.category%></option>
+                        <option value="Trending">Trending</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Iconic Cities">Iconic Cities</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Pools">Pools</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Lakes">Lakes</option>
+                        <option value="Jungle">Jungle</option>
+                        <option value="Islands">Islands</option>
+                        <option value="Boathouses">Boathouses</option>
+                    </select>
+                </div>
+                <div class="mb-3">
                     Original Listing Image<br>
                 <img src="<%=imageURL%>">
                  </div>
