@@ -105,11 +105,11 @@ font-size: 1.3rem;
     border: none !important;
 }
 
-.h2 /*For all headings*/
+h2 /*For all headings*/
 {
     color: #C70039;
     letter-spacing: 2px;
-   
+    text-align: center;
     font-weight: 530;
     margin-bottom: 20px !important;
 }
