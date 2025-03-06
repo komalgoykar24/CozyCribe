@@ -107,9 +107,8 @@ font-size: 1.3rem;
 
 h2 /*For all headings*/
 {
-    color: #C70039;
+    color: #C70039 !important;
     letter-spacing: 2px;
-    text-align: center;
     font-weight: 530;
     margin-bottom: 20px !important;
 }
