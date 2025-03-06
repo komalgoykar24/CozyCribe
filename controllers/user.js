@@ -13,7 +13,7 @@ module.exports.signup=async(req,res,next)=>{
             if(err){
                 return next(err);
             }  
-            req.flash("sucess","Welcome to WanderLust"); 
+            req.flash("success","Welcome to CozyCrib"); 
             res.redirect("/listings");
         });
        }
@@ -30,7 +30,7 @@ module.exports.renderLoginForm=(req,res)=>{
 };
 
 module.exports.login=async (req,res)=>{
-    req.flash("sucess","Welcome to WanderLust,You Login Sucessfully!!");
+    req.flash("success","Welcome to CozyCrib,You Login Sucessfully!!");
     let redirectPage=res.locals.redirectUrl || "/listings"
     res.redirect(redirectPage);
 
@@ -43,7 +43,7 @@ module.exports.logout=(req,res,next)=>{
            return next(err);
       }
       else{
-          req.flash("sucess","You are logged out successfully!!");
+          req.flash("success","You are logged out successfully!!");
           res.redirect("/listings");
       }
     })
