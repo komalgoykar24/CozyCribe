@@ -59,12 +59,12 @@ console.log(id);
 console.log(req.body.listing);
 let listing=await Listing.findByIdAndUpdate(id,{...req.body.listing});
 console.log(req.body.listing);
-// // if(typeof req.file !=="undefined"){
-// // let url=req.file.path;
-// // let filename=req.file.filename;
-// // listing.image={url,filename};
-// // await listing.save();
-// }
+if(typeof req.file !=="undefined"){
+let url=req.file.path;
+let filename=req.file.filename;
+listing.image={url,filename};
+await listing.save();
+}
 req.flash("sucess"," Listing Updated!!");
 res.redirect("/listings");
 };
