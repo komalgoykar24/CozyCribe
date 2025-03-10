@@ -41,7 +41,9 @@ const sessionOpt = {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true
-    }
+    },
+    tls: true, // Force TLS
+  tlsInsecure: true,
 };
 
 app.set("view engine", "ejs");
@@ -69,9 +71,10 @@ main().then(() => {
 });
 
 async function main() {
-    await mongoose.connect(dbURL);
-};
-
+    await mongoose.connect(dbURL,{
+        tlsAllowInvalidCertificates: true
+    });
+}
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
