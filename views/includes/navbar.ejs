@@ -1,71 +1,70 @@
 <style>
-  .search-btn{
+  .search-btn {
     background-color: #C70039;
-    color: #ffff;
+    color: #fff;
     border-radius: 30px;
-    padding: 0 1rem 0 1rem;
-    display: flex; 
+    padding: 0 1rem;
+    display: flex;
     align-items: center;
+    border: none;
   }
 
-  .search-btn:hover{
-    background-color: #C70039;
-    color: #ffff;
+  .search-btn:hover {
+    background-color: #A00030;
   }
 
-.search-btn i{
-  display: inline;
-  margin-right: 0.5rem;
-}
-.search-inp{
-border-radius: 25px;
-padding: 0.5rem 4rem 0.5rem 4rem;
-font-size: 0.9rem;
-}
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .search-inp {
+      width: 100%;
+    }
+  }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings">
-        <img src="/images/Logo.png" alt="CozyCrib Logo" width="150">
-      </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+<nav class="navbar navbar-expand-md bg-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings">
+      <img src="/images/Logo.png" alt="CozyCrib Logo" width="150">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex needs-validation" novalidate action="/search" method="GET">
-              <input 
-                  class="form-control me-2 search-inp" 
-                  type="search" 
-                  name="q" 
-                  placeholder="Search destinations" 
-                  aria-label="Search"
-                  required
-              >
-              <div class="invalid-feedback">Destination is required</div>
-              <button class="btn search-btn" type="submit">
-                  <i class="fa-solid fa-magnifying-glass"></i> Search
-              </button>
-          </form>
       </div>
-      
-         <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Create a New Stay</a>
-        <% if(!currUser){%>
-          <a class="nav-link"   href="/signup"><b>SignUp</b></a>
-          <a class="nav-link" href="/login"><b>LogIn</b></a>
-       <% } %>
-       <% if(currUser){%>
-        <a class="nav-link" href="/logout"><b>LogOut</b></a>
+
+      <div class="navbar-nav mx-auto">
+        <form class="d-flex flex-wrap needs-validation" novalidate action="/search" method="GET">
+          <input class="form-control search-inp me-2" type="search" name="q" placeholder="Search destinations" aria-label="Search" required>
+          <div class="invalid-feedback">Destination is required</div>
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link me-3" href="/listings/new">Create a New Stay</a>
+        <% if (!currUser) { %>
+          <a class="nav-link me-3" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link me-3" href="/login"><b>Log In</b></a>
+        <% } else { %>
+          <a class="nav-link me-3" href="/logout"><b>Log Out</b></a>
         <% } %>
-         </div>
-       </div>
+      </div>
     </div>
- </nav>
-
-
- 
+  </div>
+</nav>
