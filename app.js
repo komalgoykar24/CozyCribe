@@ -18,6 +18,8 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
 const dbURL = process.env.ATLASDB_URL;
+// const dbURL="mongodb://localhost:27017/wanderlust";
+
 
 
 const middlewares = require('./middlewares.js');
