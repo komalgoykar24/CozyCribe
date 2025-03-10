@@ -1,7 +1,6 @@
 <%layout("/layouts/boilerplate") %>
 <body>
-   
-    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+   <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
         <div class="row">
             <div class="col-8 offset-2">
                 <h2>Manage Your Stay</h2><br><br>
@@ -14,25 +13,25 @@
                     <label for="description" class="form-label">Description</label>
                     <textarea id="description" name="listing[description]" class="form-control" required><%=listing.description%></textarea>
                     <div class="invalid-feedback">Please provide short description!</div>
-
                 </div>
                 <div class="mb-3">
                     <label for="category" class="form-label">Select Category</label>
                     <select name="listing[category]" id="category" class="form-select" required>
-                        <option value="<%=listing.category%>" selected><%=listing.category%></option>
-                        <option value="Trending">Trending</option>
-                        <option value="Rooms">Rooms</option>
-                        <option value="Iconic Cities">Iconic Cities</option>
-                        <option value="Mountains">Mountains</option>
-                        <option value="Castles">Castles</option>
-                        <option value="Pools">Pools</option>
-                        <option value="Farms">Farms</option>
-                        <option value="Camping">Camping</option>
-                        <option value="Lakes">Lakes</option>
-                        <option value="Jungle">Jungle</option>
-                        <option value="Islands">Islands</option>
-                        <option value="Boathouses">Boathouses</option>
+                        <option value="" disabled>Select a category</option>
+                        <option value="Trending" <%= listing.category === "Trending" ? "selected" : "" %>>Trending</option>
+                        <option value="Rooms" <%= listing.category === "Rooms" ? "selected" : "" %>>Rooms</option>
+                        <option value="Iconic Cities" <%= listing.category === "Iconic Cities" ? "selected" : "" %>>Iconic Cities</option>
+                        <option value="Mountains" <%= listing.category === "Mountains" ? "selected" : "" %>>Mountains</option>
+                        <option value="Castles" <%= listing.category === "Castles" ? "selected" : "" %>>Castles</option>
+                        <option value="Pools" <%= listing.category === "Pools" ? "selected" : "" %>>Pools</option>
+                        <option value="Farms" <%= listing.category === "Farms" ? "selected" : "" %>>Farms</option>
+                        <option value="Camping" <%= listing.category === "Camping" ? "selected" : "" %>>Camping</option>
+                        <option value="Lakes" <%= listing.category === "Lakes" ? "selected" : "" %>>Lakes</option>
+                        <option value="Jungle" <%= listing.category === "Jungle" ? "selected" : "" %>>Jungle</option>
+                        <option value="Islands" <%= listing.category === "Islands" ? "selected" : "" %>>Islands</option>
+                        <option value="Boathouses" <%= listing.category === "Boathouses" ? "selected" : "" %>>Boathouses</option>
                     </select>
+                    
                 </div>
                 <div class="mb-3">
                     Original Listing Image<br>
@@ -43,6 +42,7 @@
                     <!-- <input type="file" id="image" name="listing[image]"  class="form-control"> -->
                     <input type="file" name="listing[image]"  class="form-control">
                 </div>
+                
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Price</label>

@@ -32,7 +32,7 @@ router.get("/search",asyncWrap(listingController.searchListing));
 router
 .route("/:id")
 .get(asyncWrap(listingController.showListing))
-.put(isLoggedIn,isOwner,upload.single('listing[image]'),validateListing,asyncWrap(listingController.updateListing))
+.put(isLoggedIn,isOwner,upload.single('listing[image]'),asyncWrap(listingController.updateListing))
 .delete(isLoggedIn,isOwner,asyncWrap(listingController.deletListing));
 
 

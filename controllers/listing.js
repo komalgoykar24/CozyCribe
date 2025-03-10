@@ -59,7 +59,7 @@ module.exports.updateListing = async (req, res) => {
     console.log("Updated Data:", req.body.listing);
 
     let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing }, { new: true });
-console.log("Request Body:", req.body);
+    console.log("Request Body:", req.body);
     if (req.file) { // Ensure req.file is defined before accessing properties
         let url = req.file.path;
         let filename = req.file.filename;
