@@ -54,12 +54,25 @@
     display: block;
     font-size: 18px;
 }
-@media (max-width: 768px) {
-    .navbar-brand {
-        display: none;
-    }
+@media (max-width: 768px) {  
+   
+
     .search-inp {
-        width: 100%; 
+        margin-top: 0.7rem;
+        width: 80%; /* Mobile madhe width adjust */
+        padding: 0.4rem 4rem; /* Mobile madhe thoda compact */
+        font-size: 0.9rem;
+    }
+
+    .search-btn {
+        margin-top: 0.7rem;
+        padding: 0.3rem 0.5rem; 
+        font-size: 0.9rem;
+    }
+
+    .bottom-nav {
+        bottom: 0; 
+        padding: 12px 0; 
     }
 }
 </style>
