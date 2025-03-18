@@ -15,14 +15,14 @@
 }
 
 .search-btn i {
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
 }
 
-/* Search Input */
+
 .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 2rem;
-    font-size: 0.9rem;
+    padding: 0.8rem 9rem;
+    font-size: 1rem;
 }
 
 /* Sticky Bottom Navigation Bar */
@@ -59,19 +59,20 @@
         display: none;
     }
     .search-inp {
-        width: 100%; /* Full-width on mobile */
+        width: 100%; 
     }
 }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-      <!-- Left Logo -->
-      <a class="navbar-brand" href="/listings">
-          <img src="/images/Logo1.png" alt="CozyCrib Logo" width="150">
-      </a>
+    <a class="navbar-brand d-flex align-items-center" href="/listings">
+        <img src="/images/Logo2.png" alt="CozyCrib Logo" width="150"><strong>CozyCrib</strong>
+    </a>
 
-      <!-- Center Search Bar -->
+    <a class="nav-link" href="/listings" class="me-2">Explore</a>
+
+     
       <form class="d-flex needs-validation mx-auto" novalidate action="/search" method="GET">
           <input 
               class="form-control me-2 search-inp" 
@@ -87,9 +88,9 @@
           </button>
       </form>
 
-      <!-- Right Navigation Links -->
+   
       <div class="navbar-nav ms-auto d-none d-md-flex ">
-          <a class="nav-link" href="/listings">Explore</a>
+         
           <a class="nav-link" href="/listings/new">Create a New Stay</a>
 
           <% if(!currUser){ %>

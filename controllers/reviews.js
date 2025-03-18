@@ -10,7 +10,7 @@ module.exports.createRoute=async(req,res)=>{
     listing.review.push(newReview);
     await listing.save();
     await newReview.save();
-    req.flash("sucess","New Review is Created!!");
+    req.flash("success","New Review is Created!!");
     res.redirect(`/listings/${listing._id}`);
   };
 
@@ -18,6 +18,6 @@ module.exports.createRoute=async(req,res)=>{
     let {id,reviewId}=req.params;
     await Listing.findByIdAndUpdate(id,{$pull:{review:reviewId}});
     await Review.findByIdAndDelete(reviewId);
-    req.flash("sucess","Review is Deleted!!");
+    req.flash("success","Review is Deleted!!");
     res.redirect(`/listings/${id}`)
 };

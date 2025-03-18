@@ -40,7 +40,7 @@ module.exports.createListing=async(req,res,next)=>{
     newListing.image={url,filename};
     newListing.geometry=response.body.features[0].geometry ;
     let savedListing=await newListing.save();
-    req.flash("sucess","New Listing is Created!!");
+    req.flash("success","New Stay is Created!!");
     res.redirect("/listings")
    };
 
@@ -79,7 +79,7 @@ console.log("Request File:", req.file);
 module.exports.deletListing=async(req,res)=>{
     let {id}=req.params;
     await Listing.findByIdAndDelete(id);
-    req.flash("sucess"," Listing  Deleted!!");
+    req.flash("success"," Listing  Deleted!!");
     res.redirect("/listings");
 };
 

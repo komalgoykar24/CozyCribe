@@ -17,11 +17,12 @@ body{
 }
 
 .navbar-brand img {
-    margin-left: 0; /* पूर्ण डावीकडे ठेवेल */
-    width: 70px;
+    margin-left: 0; 
+    width: 50px;
     height: auto;
     display: inline-block;
     vertical-align: middle;
+    
 }
 
 
