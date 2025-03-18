@@ -48,3 +48,11 @@ module.exports.logout=(req,res,next)=>{
       }
     })
   };
+
+  module.exports.privacy=(req,res)=>{
+    res.render("./users/privacy.ejs");
+}
+
+module.exports.terms=(req,res)=>{
+    res.render("./users/terms.ejs");
+}

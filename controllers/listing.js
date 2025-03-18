@@ -1,3 +1,4 @@
+const { model } = require("mongoose");
 const Listing=require("../models/listing");
 const asyncWrap=require("../utils/wrapAsync");
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
@@ -13,6 +14,8 @@ module.exports.renderNewForm=(req,res)=>
     {
    res.render("./listing/new.ejs");
     };
+
+    
 
     module.exports.showListing=async(req,res)=>{
         let {id}=req.params;
@@ -107,5 +110,6 @@ module.exports.searchListing= async (req, res) => {
         res.status(500).json({ error: 'Something went wrong' });
     }
 };
+
 
 
