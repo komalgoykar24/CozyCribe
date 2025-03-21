@@ -59,46 +59,46 @@
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    let searchForm = document.querySelector(".d-flex"); // Selecting the search form
+    let searchForm = document.getElementById("searchForm");
 
-    if (!searchForm) {
-        console.error("Search form not found!");
-        return;
-    }
+    if (!searchForm) return;
 
     searchForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
-        
+        event.preventDefault();
+
         let searchInput = document.querySelector(".search-inp");
-        if (!searchInput) {
-            console.error("Search input field not found!");
-            return;
-        }
+        if (!searchInput) return;
 
         let query = searchInput.value.trim();
-
         if (!query) {
-            console.error("Search query is empty!");
+            searchInput.classList.add("is-invalid");
             return;
+        } else {
+            searchInput.classList.remove("is-invalid");
         }
-
-        console.log("Searching for:", query);
 
         fetch(`/listings/search?q=${encodeURIComponent(query)}`)
             .then(response => response.json())
             .then(data => {
-                console.log("Search Results:", data);
-                updateListings(data); // Assuming updateListings function updates UI
+                if (typeof updateListings === "function") {
+                    updateListings(data);
+                }
             })
-            .catch(error => console.error("Error fetching search results:", error));
+            .catch(error => console.error("Fetch error:", error));
     });
 });
 
 
 
-  function updateListings(listings) {
+function updateListings(listings) {
     let listingsContainer = document.querySelector(".row");
-    listingsContainer.innerHTML = ""; // Clear existing listings
+
+    if (!listingsContainer) {
+        console.error("Listings container not found!");
+        return;
+    }
+
+    listingsContainer.innerHTML = ""; // Clear previous results
 
     if (listings.length === 0) {
         listingsContainer.innerHTML = `<p>No results found.</p>`;
@@ -107,19 +107,22 @@
 
     listings.forEach(listing => {
         let listingElement = document.createElement("div");
+        listingElement.classList.add("col"); // Bootstrap grid column
+
         listingElement.innerHTML = `
             <a href="/listings/${listing._id}" class="listing-link">
-                <div class="card col listing-card">
-                    <img src="${listing.image.url}" class="card-img-top" alt="listing-img" style="height: 20rem;">
+                <div class="card listing-card">
+                    <img src="${listing.image?.url || 'default-image.jpg'}" class="card-img-top" alt="listing-img" style="height: 20rem;">
                     <div class="card-body">
                         <p class="card-text">
                             <b>${listing.title}</b><br>
                             &#8377;${(listing.price || 0).toLocaleString("en-IN")} /night
-                             <i class="taxInfo">&nbsp;+18% GST</i>
+                            <i class="taxInfo">&nbsp;+18% GST</i>
                         </p>
                     </div>
                 </div>
             </a>`;
+        
         listingsContainer.appendChild(listingElement);
     });
 }
